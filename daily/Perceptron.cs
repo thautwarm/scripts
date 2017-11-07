@@ -3,27 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-
-namespace Dr.Perceptron
+namespace Calc.Perceptron
 {
-
     using Vector = List<double>;
-    public class Percepron
+    public class Perceptron
     {
-        private Vector weight;
-        private double bias;
-
-        public Vector Weight { get => weight; set => weight = value; }
-        public double Bias { get => bias; set => bias = value; }
-        public double Forward(Vector input) => input.Zip(weight, (a, b) => a * b).Sum() + bias;
+        public Vector Weight;
+        public double Bias;
+        public double Forward(Vector input)
+        {
+            return Math.Sign(input.Zip(Weight, (a, b) => a * b).Sum() + Bias);
+            
+        }
         public void Renew(Vector input, double target, double rate = 0.3)
         {
-            if(Forward(input)*target<0)
+            if (target * Forward(input) < 0)
             {
-                weight = weight.Zip(input, (a, b) => a + rate*target*b).ToList();
-                bias = bias + rate * target;
+                Weight = Weight.Zip(input, (a, b) => a + rate * target * b).ToList();
+                Bias = Bias + rate * target;
             }
+
         }
     }
 }
-
