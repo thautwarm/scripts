@@ -42,7 +42,6 @@ object Genetic {
 
         private fun evolution(order: Int) {
             println("""$order-th cycle.""")
-
             Popularity = Popularity
                     .map { Mutate(it) }
                     .map { Crossover(it) }
@@ -58,6 +57,5 @@ object Genetic {
             IntRange(0, iter).forEach{evolution(it)}
             BestInd
         }
-
     }
 }
