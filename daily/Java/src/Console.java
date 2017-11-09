@@ -2,7 +2,6 @@
 import java.io.*;
 import java.util.List;
 import java.util.Vector;
-import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
 public class Console {
@@ -88,8 +87,22 @@ public class Console {
                 else if (args.length == 3) {
 
                     Perceptron(new String[]{args[1], args[2]});
+
                 }
                 break;
         }
+        Genetic();
+    }
+
+    public static void Genetic(){
+
+        Genetic genetic = new Genetic(data-> (data.get(0)==true?1.0:0)
+                                            +(data.get(1)==false?1.0:0)
+                                            +(data.get(2)==true?1.0:0),
+                100, 3);
+        genetic.NaturalSelection(100);
+        genetic.BestIndividual.forEach(i->System.out.print(i+","));
+        System.out.println();
+
     }
 }
