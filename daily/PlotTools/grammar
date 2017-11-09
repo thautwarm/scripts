@@ -1,0 +1,10 @@
+
+Token{{
+import re
+regex = re.compile('E|\d+|\.|\,|\n|\-')
+def token(string): 
+	return regex.findall(string)
+}}
+Number ::= ['-'] R'\d+' [C'.' R'\d+'] [C'E' ['-'] R'\d+'];
+Data Throw [',', '\n'] ::= Number (C',' Number)* '\n'*;
+DataSets ::= Data*;

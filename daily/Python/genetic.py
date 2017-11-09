@@ -5,6 +5,7 @@ import numpy as np
 from numpy import vectorize
 from copy import deepcopy
 from numba import autojit
+import sys
 def forI(i, p_c, prob_interval):
         if master_influ_prob[i] > p_c:
             master = deepcopy(seqs[master_indices[i]])
@@ -109,15 +110,18 @@ def fit1(seq):
         odd = not odd
     return score
 
-print(run(fit1, 20, 0.5, 0.3))
+
     
 def makeFitBySeq(seq1):
     def fit2(seq):
        return sum([1 for i,j in zip(seq, seq1) if i==j])
     return fit2
+if __name__ == '__main__':
+    print(run(eval(sys.argv[1]), int(sys.argv[2]), 0.3, 0.3))
 
-target = [1,0,1,1,1,0,0,0,1,1,1,1,1,0,0,0,1,1,0,0]
-fit2 = makeFitBySeq(target)
-print(run(fit2, len(target), 0.3, 0.3))
+# print(run(fit1, 20, 0.5, 0.3))
+# target = [1,0,1,1,1,0,0,0,1,1,1,1,1,0,0,0,1,1,0,0]
+# fit2 = makeFitBySeq(target)
+# print(run(fit2, len(target), 0.3, 0.3))
 
     

@@ -15,7 +15,7 @@ def main(size:str, f:str, learnRate = 0.5, iters = 5):
     size      = int(size)
 
     bases     = np.random.random(size = (size, )) * (2 * np.pi)
-    R         = np.arange(0, 1, 0.05)
+    R         = np.arange(0, 4, 0.1)
 
     Y = np.sin(bases)
     X = np.cos(bases)
@@ -37,14 +37,16 @@ def main(size:str, f:str, learnRate = 0.5, iters = 5):
             if (np.dot(Weights, data)+Bias)*target <= 0: 
                 Weights += learnRate * target * data
                 Bias    += learnRate * target
-                
-    outputs = np.sign(np.dot(Weights, np.atleast_2d(datas).T)+Bias)
+    
+    outputs = np.sign(np.dot(Weights, np.atleast_2d(datas).T)+Bias)[0]
 #    outputs = [np.sign(Weights*data) for data, in datas]
     from matplotlib import pyplot as plt
-    plt.subplot(211)
+    plt.subplot(311)
+    plt.title("True Categories")
     plt.scatter(datas[:,0], datas[:, 1], c = targets)
-    plt.subplot(212)
-    plt.scatter(datas[:,0], datas[:, 1], c = outputs )
+    plt.subplot(313)
+    plt.title("Prediction")
+    plt.scatter(datas[:,0], datas[:, 1], c = outputs)
     plt.show()
 
 if __name__ == '__main__':

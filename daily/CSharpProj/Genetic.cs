@@ -31,7 +31,7 @@ namespace Calc.Genetic
         static Random rnd = new Random();
         public static Chromosome GenChromosome(int size)
         {
-            return Range.Stream(size).Select(i => rnd.Next() % 2 == 0).ToList();
+            return Enumerable.Range(0, size).Select(i => rnd.Next(0, 1) == 0).ToList();
         }
 
         public Genetic(int popuSize, 
@@ -46,13 +46,13 @@ namespace Calc.Genetic
             split = 1.0 / chromosomeLength;
             Score = score;
             GetCrossOverHead = prob => (int)(prob / split);
-            Popularity = Range.Stream(popuSize).Select(i => ChromosomeLength).Select(GenChromosome).ToList();
+            Popularity = Enumerable.Range(0, popuSize).Select(i => ChromosomeLength).Select(GenChromosome).ToList();
         }
 
         public void Mutate(Chromosome chromosome)
         {
 
-            Range.Stream(ChromosomeLength).ForEach(i =>
+            Enumerable.Range(0, ChromosomeLength).ToList().ForEach(i =>
             { 
                 if (MutateRatio > rnd.NextDouble())
                     chromosome[i] = !chromosome[i];
@@ -62,7 +62,7 @@ namespace Calc.Genetic
         public void Crossover(Chromosome c1, Chromosome c2) {
 
             var headIdx = GetCrossOverHead(rnd.NextDouble());
-            Range.Stream(headIdx).ForEach(i =>
+            Enumerable.Range(0, headIdx).ToList().ForEach(i =>
                 {
                     var tmp = c1[i];
                     c1[i] = c2[i];
@@ -86,7 +86,7 @@ namespace Calc.Genetic
             }
             Popularity.Sort(ChromosomeCompare);
             BestFitter = Popularity[0];
-            Range.Stream(PopuSize/2, PopuSize).ForEach(
+            Enumerable.Range(PopuSize/2, PopuSize/2).ToList().ForEach(
                 i => { Popularity[i] = GenChromosome(ChromosomeLength); }
                 );
 
@@ -95,7 +95,7 @@ namespace Calc.Genetic
         public Chromosome NaturalSelection(int iter = 100)
         {
             Popularity.Sort(ChromosomeCompare);
-            Range.Stream(0, iter).ForEach(evolution);
+            Enumerable.Range(0, iter).ToList().ForEach(evolution);
             return BestFitter;
         }
 
