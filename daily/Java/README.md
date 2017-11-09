@@ -18,9 +18,9 @@ java Console [Perceptron] [dataSize默认100] [featureLength默认2]
 
 ```Java
 Genetic genetic = new Genetic(      // Fit
-                                data-> (data.get(0)==true?1.0:0)
+                                data->   (data.get(0)==true ?1.0:0)
                                         +(data.get(1)==false?1.0:0)
-                                        +(data.get(2)==true?1.0:0),
+                                        +(data.get(2)==true ?1.0:0),
                                 
                                 100, // groupSize
                                 3);  // chromosomeLength
