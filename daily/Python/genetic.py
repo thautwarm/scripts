@@ -1,3 +1,9 @@
+"""
+This is the solution for a kata I created at `wwww.codewars.com `.
+Link : https://www.codewars.com/kata/599d3d4ed17e45837c00005f
+It mixed GA with statistic methods simply.
+"""
+
 ignored = 15
 import concurrent.futures
 import numpy.random as rnd
