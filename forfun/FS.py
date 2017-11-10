@@ -54,7 +54,7 @@ def DFS(max_depth=10):
     return query
 
 
-from collections import deque
+from collections import deque, OrderedDict
 def BFS(now:Node):
     net = dict() # handled
     cache = deque([now])
@@ -78,7 +78,6 @@ def DBFS(max_depth = 10):
             if depth > max_depth:
                 break
             for now in cache.copy():
-                now = cache.popleft()
                 net[now] = idx
                 idx += 1
                 for friend in now.friends:
@@ -89,35 +88,35 @@ def DBFS(max_depth = 10):
     return query
         
 
-    
-def GFS(max_depth_and_with = 10):
-    
-    def query(now:Node):
-        net = dict() # handled
-        cache = deque([now])
-        idx = 0
-        order = 0
-        while cache:
-            if order > max_depth_and_with:
-                break
-            for now in cache.copy():
-                now = cache.popleft()
-                net[now] = idx
-                idx += 1
-                for friend in now.friends:
-                    if friend not in net: # not handled
-                        cache.append(friend)
-            order += 1
+def GFS(max_depth_and_with = 2):
+    def init(now:Node):
+        net = OrderedDict() # handled
+        cache = OrderedDict()
+        def query(node, max_depth):
+            def search(now:Node, depth=0):
+                if now in net:
+                    return 
+                elif depth > max_depth:
+                    if now not in cache:
+                        cache[now] = None
+                    return 
+                net[now] = None
+                for friend in now.friends[:depth+1]:
+                    search(friend, depth+1)
+            search(node)
+        query(now, max_depth_and_with)
         return net
-    return query
+    return init
+
                 
 
 
 make_op1 = lambda n :  DFS(max_depth=n)
 make_op2 = lambda n :  BFS
 make_op3 = lambda n :  DBFS(max_depth=n)
+make_op4 = lambda n :  GFS(max_depth_and_with=n)
 
-for i, make_op in enumerate((make_op1, make_op2, make_op3)):
+for i, make_op in enumerate((make_op1, make_op2, make_op3, make_op4)):
     print(i)
     for n in range(10):
         op = make_op(n)
