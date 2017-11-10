@@ -159,7 +159,7 @@ class NN:
         
 
 # 无穷邻接?
-class Inifite:
+class Infinite:
     
     def __init__(self, succ = lambda x:x+1, init = 0):
         self.succ = succ
@@ -194,7 +194,7 @@ class Sample:
     @property
     def friends(self):
         if self._friends is None:
-            self._friends = Inifite(lambda s: Sample(s.x, s.y+1), init=Sample(self.x, self.y+1))
+            self._friends = Infinite(lambda s: Sample(s.x, s.y+1), init=Sample(self.x, self.y+1))
         return self._friends
 
     @property
