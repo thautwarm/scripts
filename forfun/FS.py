@@ -87,6 +87,31 @@ def DBFS(max_depth = 10):
             depth += 1
         return net
     return query
+        
+
+    
+def GFS(max_depth_and_with = 10):
+    
+    def query(now:Node):
+        net = dict() # handled
+        cache = deque([now])
+        idx = 0
+        order = 0
+        while cache:
+            if order > max_depth_and_with:
+                break
+            for now in cache.copy():
+                now = cache.popleft()
+                net[now] = idx
+                idx += 1
+                for friend in now.friends:
+                    if friend not in net: # not handled
+                        cache.append(friend)
+            order += 1
+        return net
+    return query
+                
+
 
 make_op1 = lambda n :  DFS(max_depth=n)
 make_op2 = lambda n :  BFS
@@ -102,6 +127,81 @@ for i, make_op in enumerate((make_op1, make_op2, make_op3)):
 
 
 
+func = {0:lambda x,y : (x+1, y),
+        1:lambda x,y : (x, y+1),
+        2:lambda x,y : (x-1, y),
+        3:lambda x,y : (x, y-1)}
+
+class NN:
+    def __init__(self, x0=0,y0=0):
+        self.elems  = [(x0, y0)]
+        self.status = 0
+        self.evaluated = 0
+    
+    def __getitem__(self, i):
+        if i < self.evaluated:
+            return self.elems[i]
+        else:
+            while i >= self.evaluated:
+                next(self)
+            return self.elems[i]
+    
+        
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        tmp = self.status
+        self.evaluated += 1
+        self.status = (self.status+1)%4
+        self.elems.append(func[tmp](*self.elems[-1]))
+        return self.elems[-1]
+        
+
+# 无穷邻接?
+class Inifite:
+    
+    def __init__(self, succ = lambda x:x+1, init = 0):
+        self.succ = succ
+        self.elems = [init]
+        self.evaluated = 0
+    def __getitem__(self, i):
+        if i < self.evaluated:
+            return self.elems[i]
+        else:
+            while i >= self.evaluated:
+                next(self)
+            return self.elems[i]
+    
+    def __str__(self):
+        return f'{", ".join([str(self[i]) for i in range(10)] + ["..."])}'
+            
+    
+    def __iter__(self):
+        return self
+    
+    def __next__(self):
+        self.evaluated += 1
+        self.elems.append(self.succ(self.elems[-1]))
+        return self.elems[-1]
+
+class Sample:
+    def __init__(self, deepth = 0, board = 0):
+        self.x, self.y = deepth , board
+        self._friends = None
+        self._next = None
+    
+    @property
+    def friends(self):
+        if self._friends is None:
+            self._friends = Inifite(lambda s: Sample(s.x, s.y+1), init=Sample(self.x, self.y+1))
+        return self._friends
+
+    @property
+    def next(self):
+        if self._next is None:
+            self._next = Sample(self.x+1, self.y)
+        return self._next
 
 
 
