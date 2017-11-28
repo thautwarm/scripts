@@ -29,6 +29,9 @@ def genetic_algorithm_by_group(population, fit_func, mutate_rate=0.3, crossover_
         test_if_change = np.random.random((chromo_size, ))
         last = None
         for i in range(chromo_size):
+            """
+            循环似乎不可避免 because of none reference of immutable datas in CPython.
+            """
             if mutate_rate > test_if_change[i]:
                 if last is None:
                     last = i
