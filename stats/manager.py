@@ -66,6 +66,8 @@ class StatsEnv:
         t_stats = coef / (np.sqrt(C.diagonal()) * stderr)
 
         t_bound = stats.t.cdf(t_stats, n - p)
+        x_l, x_r = stats.t.interval(1 - t, n - p, np.mean(x, axis=0), stderr)
+        interval = [(x, y) for x in x_l for y in x_r]
 
         checked_pass = t_bound > 1 - t
         r = np.dot(data.T, data)  # 相关系数
@@ -84,6 +86,7 @@ class StatsEnv:
             SST=SST,
             SSE=SSE,
             R2=R2,
+            interval=interval,
             checked_pass=pd.DataFrame([data.columns[1:], checked_pass]).T, )
 
     def plot(self, dims: np.ndarray = 1):
@@ -152,5 +155,5 @@ class StatsEnv:
 
 df = pd.read_csv('3-11.csv', encoding='gbk')
 s = StatsEnv(df, target='货运总量', t=0.05)
-# print(s)
+print(s)
 # print(s.to_standard)
