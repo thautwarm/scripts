@@ -8,9 +8,10 @@ Created on Thu Jan 18 22:46:42 2018
 import numpy as np
 from scipy import stats
 import matplotlib as mpl
-mpl.rcParams['font.sans-serif'].append('FangSong')
-
+mpl.rcParams['font.sans-serif'] = ['FangSong']
+mpl.rcParams['axes.unicode_minus']=False
 import matplotlib.pyplot as plt
+
 import seaborn as sns
 from math import sqrt
 import pandas as pd
@@ -223,8 +224,20 @@ class StatsEnv:
                         target=context.target,
                         t=context.t)
 
+    def normal_probability_plot(self, by: str):
+        this = getattr(self.context, by)
+        
+        plt.subplot(311)
+        
+        plt.title(by+'分布直方图')
+        sns.distplot(this)
+    
+        plt.subplot(313)
+        stats.probplot(this, plot=plt)
+        
+        
 
-df = pd.read_csv('2-15.csv', encoding='gbk')
+df = pd.read_csv('2-16.csv', encoding='gbk')
 s = StatsEnv(df, target='y', t=0.025, digit=5)
 print(s)
 print()
@@ -232,5 +245,8 @@ print(s.to_standard.stats_result['r'])
 #print(s.to_standard)
 # s.plot([1, 2, 3])
 # print(s.to_standard)
+
+# sns.distplot(s.context.e)
+# stats.probplot(s.context.e, plot=plt)
 
 
