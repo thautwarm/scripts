@@ -16,6 +16,8 @@ import seaborn as sns
 from math import sqrt
 import pandas as pd
 from sympy import init_printing, Matrix, latex
+from numbers import Number
+from collections import Iterable
 
 np.set_printoptions(suppress=True)
 #init_printing()
@@ -166,6 +168,14 @@ class StatsEnv:
         plt.show()
     
     def predict(self, samples):
+        if isinstance(samples, Number):
+            samples = np.array((samples,))
+        elif isinstance(samples, Iterable) and not isinstance(samples, np.ndarray):
+            samples = np.array(tuple(samples))
+        else:
+            raise TypeError(f'Invalid type `{samples.__class__}`')
+            
+            
         
         coef = self.stats_result['coef']
         
