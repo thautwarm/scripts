@@ -17,7 +17,7 @@ import pandas as pd
 from sympy import init_printing, Matrix, latex
 
 np.set_printoptions(suppress=True)
-init_printing()
+#init_printing()
 
 
 def standard_scale(x):
@@ -74,8 +74,8 @@ class StatsEnv:
         R2 = 1 - SSE / SST
         coef_stderrs = (np.sqrt(C.diagonal()) * stderr)
         t_stats = coef / coef_stderrs
-
         t_bound = stats.t.cdf(t_stats, n - p)
+        
         interval = list(zip(*map(lambda _: _.round(digit), 
                                  stats.t.interval(t, n - p, coef, coef_stderrs))))
 
@@ -131,7 +131,7 @@ class StatsEnv:
                 SSE=round(context.SSE, context.digit),
                 R2=round(context.R2, context.digit),
                 
-                interval=format_df(pd.DataFrame([context.data.columns[1:], context.interval]).T, ['inf', 'sup']),
+                interval=format_df(pd.DataFrame([context.data.columns[1:], context.interval]).T, ['coef for', '(inf, sup)']),
                 checked_pass=format_df(pd.DataFrame([context.data.columns[1:], context.checked_pass]).T, ['coef for', 'is_passed']))
 
     def plot(self, dims: np.ndarray = 1, residual=True, regression=True):
@@ -183,7 +183,7 @@ class StatsEnv:
     def __str__(self):
         """report
         """
-        return '\n'.join((f"{k}:\n\n {v}" for k, v in self.context_format.items() if k not in self.report_filters))
+        return '\n\n'.join((f"{k}:\n\n {v}" for k, v in self.context_format.items() if k not in self.report_filters))
 
     def __repr__(self):
         return str(self)
@@ -224,10 +224,11 @@ class StatsEnv:
                         t=context.t)
 
 
-df = pd.read_csv('2-14.csv', encoding='gbk')
-s = StatsEnv(df, target='y', t=0.025)
+df = pd.read_csv('2-15.csv', encoding='gbk')
+s = StatsEnv(df, target='y', t=0.025, digit=5)
 print(s)
-#print(s.to_standard.stats_result['r'])
+print()
+print(s.to_standard.stats_result['r'])
 #print(s.to_standard)
 # s.plot([1, 2, 3])
 # print(s.to_standard)
