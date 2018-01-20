@@ -11,11 +11,12 @@ import matplotlib as mpl
 mpl.rcParams['font.sans-serif'] = ['FangSong']
 mpl.rcParams['axes.unicode_minus']=False
 import matplotlib.pyplot as plt
+from pipe_fn import and_then
 
 import seaborn as sns
 from math import sqrt
 import pandas as pd
-from sympy import init_printing, Matrix, latex
+from sympy import Matrix, latex
 from numbers import Number
 from collections import Iterable
 
@@ -40,9 +41,10 @@ class StatsEnv:
     def __init__(self,
                  data: pd.DataFrame,
                  target: str,
-                 t=0.025,
+                 t=0.05,
                  use_bias=True,
                  digit=3,
+                 standard_recovery = None,
                  report_filters=('x', 'y', 'e', 'C', 't', 'target', 'data', 'use_bias', 'digit')):
         if data.columns[0] != target:
             data = data.loc[:, [target, *[column for column in data.columns if column != target]]]
@@ -52,6 +54,7 @@ class StatsEnv:
         self.use_bias = use_bias
         self.digit = digit
         self.data = data
+        self.standard_recovery = standard_recovery
         self.target = target
         self.t = t
         self.report_filters = report_filters
@@ -72,17 +75,27 @@ class StatsEnv:
 
         stderr = sqrt(SSE / (n - p))
 
-        SST = sum(np.square(y - np.mean(y)))
-
-        R2 = 1 - SSE / SST
+        mean_y = np.mean(y)
+        SST = sum(np.square(y - mean_y))
+        
+        SSR = SST - SSE
+        R2 = SSR / SST
+        
         coef_stderrs = (np.sqrt(C.diagonal()) * stderr)
+        
         t_stats = coef / coef_stderrs
-        t_bound = stats.t.cdf(t_stats, n - p)
+        f_stats = (SSR/(p-1))/(SSE/(n-p))
+        
+        t_bound = stats.t.cdf(t_stats, n - p -1)
+        f_bound = stats.f.cdf(f_stats, p, n - p - 1)
+        
         
         interval = list(zip(*map(lambda _: _.round(digit), 
                                  stats.t.interval(t, n - p, coef, coef_stderrs))))
 
-        checked_pass = t_bound > 1 - t
+        equ_checked_pass = f_bound > 1 - t
+        coef_checked_pass = t_bound > 1 - t
+        
         r = np.dot(data.T, data)  # 相关系数
         self.stats_result = dict(     
             # 初始化配置
@@ -98,13 +111,16 @@ class StatsEnv:
             e=e,
             r=r,
             t_stats=t_stats,
+            f_stats=f_stats,
             t_bound=t_bound,
+            f_bound=f_bound,
             stderr=stderr,
             SST=SST,
             SSE=SSE,
             R2=R2,
             interval=interval,
-            checked_pass=checked_pass)
+            coef_checked_pass=coef_checked_pass,
+            equ_checked_pass=equ_checked_pass)
         self.context = ReadonlyDict(self.stats_result)
 
     
@@ -116,26 +132,30 @@ class StatsEnv:
             x.index = ['']*m
             return x
         context = self.context
+        digit = context.digit
         return dict(     
                 coef=format_df(pd.DataFrame([context.data.columns[1:], context.coef]).T, ['coef for', 'value']),
                 equ=context.target +
                 ' = ' +
                 ' + '.join([f'{c}*{1 if name =="beta0" else name}'
-                            for c, name in zip(context.coef.round(context.digit), 
+                            for c, name in zip(context.coef.round(digit), 
                                                context.data.columns[1:])]),
     
-                C=context.C.round(context.digit),
-                e=context.e.round(context.digit),
-                r=context.r.round(context.digit),
-                t_stats=context.t_stats.round(context.digit),
-                t_bound=context.t_bound.round(context.digit),
-                stderr=round(context.stderr, context.digit),
-                SST=round(context.SST, context.digit),
-                SSE=round(context.SSE, context.digit),
-                R2=round(context.R2, context.digit),
+                C=context.C.round(digit),
+                e=context.e.round(digit),
+                r=context.r.round(digit),
+                t_stats=context.t_stats.round(digit),
+                t_bound=context.t_bound.round(digit),
+                f_stats=context.f_stats.round(digit),
+                f_bound=context.f_bound.round(digit),
+                stderr=round(context.stderr, digit),
+                SST=round(context.SST, digit),
+                SSE=round(context.SSE, digit),
+                R2=round(context.R2, digit),
                 
+                equ_checked_pass = context.equ_checked_pass,
                 interval=format_df(pd.DataFrame([context.data.columns[1:], context.interval]).T, ['coef for', '(inf, sup)']),
-                checked_pass=format_df(pd.DataFrame([context.data.columns[1:], context.checked_pass]).T, ['coef for', 'is_passed']))
+                coef_checked_pass=format_df(pd.DataFrame([context.data.columns[1:], context.coef_checked_pass]).T, ['coef for', 'is_passed']))
 
     def plot(self, dims: np.ndarray = 1, residual=True, regression=True):
         """
@@ -167,16 +187,26 @@ class StatsEnv:
 
         plt.show()
     
-    def predict(self, samples):
+    def predict(self, samples, confidence: float=False):
         if isinstance(samples, Number):
             samples = np.array((samples,))
         elif isinstance(samples, Iterable) and not isinstance(samples, np.ndarray):
             samples = np.array(tuple(samples))
         else:
             raise TypeError(f'Invalid type `{samples.__class__}`')
-            
-            
         
+        
+        if self.standard_recovery is not None:
+            scale = True
+        else:
+            scale = False
+        
+        if scale:
+            mean, norm = self.standard_recovery
+            samples = (samples - mean)/norm
+            
+
+
         coef = self.stats_result['coef']
         
         def _pred(x):
@@ -186,9 +216,17 @@ class StatsEnv:
                 return np.dot(x, coef)
         
         if samples.ndim is 1:
-            return _pred(samples)
+            prediction = _pred(samples)
+
         else:
-            return np.vectorize(_pred)(samples)
+            prediction = np.vectorize(_pred)(samples)
+        
+        if scale:
+            prediction = prediction*norm + mean
+                    
+        if confidence is not False:
+            return prediction, stats.norm.interval(1-confidence, prediction, self.context.stderr)
+        return prediction
             
 
     def __str__(self):
@@ -205,6 +243,8 @@ class StatsEnv:
         """
         try:
             from IPython.display import display_latex, Math
+            from sympy import init_printing
+            init_printing()
         except ModuleNotFoundError:
             return self.__str__()
 
@@ -229,7 +269,13 @@ class StatsEnv:
         """标准化后的回归
         """
         context = self.context
-        return StatsEnv(context.data.loc[:, context.data.columns != 'beta0'].apply(standard_scale),
+        data = context.data.loc[:, context.data.columns != 'beta0']
+        return StatsEnv(data.agg(standard_scale),
+                        standard_recovery=(
+                                (lambda _: (
+                                        lambda mean, df: (
+                                                mean, np.linalg.norm(df-mean, axis=0))
+                                        )(_.mean(0), _)))(data.values),
                         use_bias=False,  # 继承当前数据是否使用bias的状态
                         target=context.target,
                         t=context.t)
@@ -247,11 +293,19 @@ class StatsEnv:
         
         
 
-df = pd.read_csv('2-16.csv', encoding='gbk')
-s = StatsEnv(df, target='y', t=0.025, digit=5)
+df = pd.read_csv('happiness.csv', encoding='gbk')
+cols = df.dtypes.map(lambda x: issubclass(x.type, np.floating))
+cols = (df.columns!='Standard Error') & cols
+COL1 = ['Economy (GDP per Capita)', 'Health (Life Expectancy)']
+df = df.loc[:, COL1]
+s = StatsEnv(df, target='Health (Life Expectancy)', t=0.05, digit=8)
+#print(s)
+#coef_checked_pass = s.stats_result['coef_checked_pass']
+#df = df[[df.columns[0], *df.columns[1:][coef_checked_pass]]]
+#s = StatsEnv(df, target='货运总量', t=0.05, digit=5)
 print(s)
 print()
-print(s.to_standard.stats_result['r'])
+#s.to_standard.report_use_latex
 #print(s.to_standard)
 # s.plot([1, 2, 3])
 # print(s.to_standard)
