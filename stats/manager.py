@@ -60,9 +60,9 @@ class StatsEnv:
         self.report_filters = report_filters
         
         n, p = data.shape
-
-        p -= 1
-
+        p -= 1 + (1 if use_bias else 0)
+        
+        
         x = data.loc[:, data.columns != target].values
         y = data[target].values
         coef, _, *_ = np.linalg.lstsq(x, y)
@@ -73,7 +73,7 @@ class StatsEnv:
 
         SSE = sum(np.square(e))
 
-        stderr = sqrt(SSE / (n - p))
+        stderr = sqrt(SSE / (n - p - 1))
 
         mean_y = np.mean(y)
         SST = sum(np.square(y - mean_y))
@@ -84,7 +84,7 @@ class StatsEnv:
         coef_stderrs = (np.sqrt(C.diagonal()) * stderr)
         
         t_stats = coef / coef_stderrs
-        f_stats = (SSR/(p-1))/(SSE/(n-p))
+        f_stats = (SSR/(p))/(SSE/(n -p -1))
         
         t_bound = stats.t.cdf(t_stats, n - p -1)
         f_bound = stats.f.cdf(f_stats, p, n - p - 1)
@@ -93,8 +93,8 @@ class StatsEnv:
         interval = list(zip(*map(lambda _: _.round(digit), 
                                  stats.t.interval(t, n - p, coef, coef_stderrs))))
 
-        equ_checked_pass = f_bound > 1 - t
-        coef_checked_pass = t_bound > 1 - t
+        equ_checked_pass = f_bound >  t
+        coef_checked_pass = t_bound > t
         
         r = np.dot(data.T, data)  # 相关系数
         self.stats_result = dict(     
@@ -161,33 +161,42 @@ class StatsEnv:
         """
         画图
         """
-        
+        context = self.context
         if isinstance(dims, int):
-
+            dim = context.data.columns[dims]
             plt.figure()
-            plt.title('dim' + str(dims))
-            x, y = self.data.iloc[:, dims], self.data.iloc[:, 0]
+            plt.title('dim : ' + str(dim))
+            
             if regression:
-                sns.regplot(x, y, label='x-y')
+                sns.regplot(context.data[dim], 
+                            context.data[context.target], 
+                            label=dim +' - ' + context.target)
             if residual:
-                sns.residplot(x, y, label='x-residual')
+                sns.residplot(context.data[dim], 
+                              context.data[context.target], label='residual')
+                    
             plt.legend()
 
         else:
-
+            dims = context.data.columns[np.array(dims)]
             for dim in dims:
                 plt.figure()
-                plt.title('dim' + str(dim))
-                x, y = self.data.iloc[:, dim], self.data.iloc[:, 0]
+                plt.title('dim : ' + str(dim))
+                
                 if regression:
-                    sns.regplot(x, y, label='x-y')
+                    sns.regplot(context.data[dim], 
+                                context.data[context.target], 
+                                label=dim +' - ' + context.target)
                 if residual:
-                    sns.residplot(x, y, label='x-residual')
+                    sns.residplot(context.data[dim], 
+                                  context.data[context.target], label='residual')
                 plt.legend()
 
         plt.show()
     
     def predict(self, samples, confidence: float=False):
+        """confidence: 置信度
+        """
         if isinstance(samples, Number):
             samples = np.array((samples,))
         elif isinstance(samples, Iterable) and not isinstance(samples, np.ndarray):
@@ -203,7 +212,7 @@ class StatsEnv:
         
         if scale:
             mean, norm = self.standard_recovery
-            samples = (samples - mean)/norm
+            samples = (samples - mean[1:])/norm[1:]
             
 
 
@@ -222,10 +231,10 @@ class StatsEnv:
             prediction = np.vectorize(_pred)(samples)
         
         if scale:
-            prediction = prediction*norm + mean
+            prediction = prediction*norm[0] + mean[0]
                     
         if confidence is not False:
-            return prediction, stats.norm.interval(1-confidence, prediction, self.context.stderr)
+            return prediction, stats.norm.interval(1 - confidence, prediction, self.context.stderr)
         return prediction
             
 
@@ -290,15 +299,50 @@ class StatsEnv:
     
         plt.subplot(313)
         stats.probplot(this, plot=plt)
+#        
+df = pd.read_csv('3-11.csv', encoding='gbk')
+s = StatsEnv(df, target='货运总量', t=0.95, digit=5)
+s_ = s.to_standard
+# cols = df.dtypes.map(lambda x: issubclass(x.type, np.floating))
+# cols = (df.columns!='Standard Error') & cols
         
         
+# Economy - Health
 
-df = pd.read_csv('happiness.csv', encoding='gbk')
-cols = df.dtypes.map(lambda x: issubclass(x.type, np.floating))
-cols = (df.columns!='Standard Error') & cols
-COL1 = ['Economy (GDP per Capita)', 'Health (Life Expectancy)']
-df = df.loc[:, COL1]
-s = StatsEnv(df, target='Health (Life Expectancy)', t=0.05, digit=8)
+#df = pd.read_csv('happiness.csv', encoding='gbk')
+#COL1 = ['Health (Life Expectancy)', 'Economy (GDP per Capita)']
+#df = df.loc[:, COL1]
+#s = StatsEnv(df, target='Health (Life Expectancy)', t=0.05, digit=8)
+#s_ = s.to_standard
+
+# Trust - Economy
+#df = pd.read_csv('happiness.csv', encoding='gbk')
+#cols = df.dtypes.map(lambda x: issubclass(x.type, np.floating))
+#cols = (df.columns!='Standard Error') & cols
+#COL1 = ['Trust (Government Corruption)', 'Economy (GDP per Capita)']
+#df = df.loc[:, COL1]
+#
+#s = StatsEnv(df, target='Economy (GDP per Capita)', t=0.05, digit=5)
+#ra = 1
+#print(sum(np.abs(s.context.e) <  ra*s.context.stderr), s.data.shape[0])
+#df = df.loc[ np.abs(s.context.e) <  ra * s.context.stderr, :]
+#s = StatsEnv(df, target='Economy (GDP per Capita)', t=0.05, digit=5)
+#s_ = s.to_standard
+
+#df = pd.read_csv('happiness.csv', encoding='gbk')
+#cols = df.dtypes.map(lambda x: issubclass(x.type, np.floating))
+#cols = (df.columns!='Standard Error') & cols
+#COL1 = ['Trust (Government Corruption)', 'Freedom']
+#df = df.loc[:, COL1]
+##df = df.loc[df['Trust (Government Corruption)']>0.25, :]
+#
+#s = StatsEnv(df, target='Freedom', t=0.05, digit=8)
+#ra = 1
+#print(sum(np.abs(s.context.e) <  ra*s.context.stderr), s.data.shape[0])
+#df = df.loc[ np.abs(s.context.e) <  ra * s.context.stderr, :]
+#s = StatsEnv(df, target='Freedom', t=0.05, digit=8)
+#s_ = s.to_standard
+
 #print(s)
 #coef_checked_pass = s.stats_result['coef_checked_pass']
 #df = df[[df.columns[0], *df.columns[1:][coef_checked_pass]]]
