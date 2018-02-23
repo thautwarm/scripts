@@ -17,10 +17,10 @@ end
 
 transform_mat = [0.0, 0.5, 1.0] → [0, 0.6, 1]
 display(transform_mat)
-# 3×4 Array{Float64,2}:
-#  0.0  0.0  0.0  0.0
-#  0.0  0.2  0.3  0.5
-#  0.0  0.2  0.3  1.0
+# 3×3 Array{Float64,2}:
+#  0.0  0.0  0.0
+#  0.0  0.5  0.5
+#  0.0  0.6  1.0
 
 function decision(relation :: Relation, rule :: Rule)
     size_relation = size(relation)
@@ -44,3 +44,4 @@ rule = [1 2 3;
         3 1 2]
 
 decision(transform_mat, rule) |> println
+# Dict(2=>(1.0, (2, 0)),3=>(0.5, (1, 2)),1=>(0.6, (1, 2)))
