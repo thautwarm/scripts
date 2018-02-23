@@ -1,4 +1,5 @@
 *.cpp export-ignore
+*.cxx export-ignore
 *.h export-ignore
 *.hpp export-ignore
 *.ipynb export-ignore
