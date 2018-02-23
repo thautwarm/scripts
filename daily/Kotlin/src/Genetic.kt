@@ -22,14 +22,14 @@ object Genetic {
         private var swap = BestInd
 
         private fun Mutate(c: Chromosome): Chromosome = c.map { it ->
-            if (rnd.nextDouble() > MutateRate) {
+            if (rnd.nextDouble() < MutateRate) {
                 !it
             }
             it
         }
 
         private fun Crossover(c1: Chromosome): Chromosome {
-            if (rnd.nextDouble()>CrossoverRate) return c1
+            if (rnd.nextDouble() < CrossoverRate) return c1
             val head = GetCrossoverHead(rnd.nextDouble())
             return c1.zip(swap).mapIndexed { idx, (first, second) ->
                 if (idx <= head){
