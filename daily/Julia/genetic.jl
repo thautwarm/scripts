@@ -1,3 +1,4 @@
+__precompile__()
 # integer permutation genetic algorithm
 using Base.Iterators.take
 Dtype = Float64
@@ -60,7 +61,7 @@ function ga(gene_length :: Int, fitness :: Function,
     end
 
     for iter_num = 1:iter
-    
+
         sort!(popu, by=fitnessWrap)
         remain_num = trunc(Int, clamp.(rand(), 0.2, 0.5) * popu_size)
         popu = collect(take(popu, remain_num))
@@ -106,20 +107,26 @@ function ga(gene_length :: Int, fitness :: Function,
 end
 
 
-Map = [
-    (100, 200),
-    (50, 70),
-    (40, 20),
-    (9, 200),
-    (170, 33),
-    (110, 120),
-    (300, 120),
-    (200, 70),
-    (180, 50)
-]
+X = [34, 56, 27, 44, 4, 10, 55, 14, 28, 12, 16, 68, 24, 29,49, 51, 45, 78, 82, 32, 95, 53,
+     7, 64, 88, 23, 87, 34, 71, 98]
+Y = [57, 64, 82, 94, 18, 64, 69, 30, 54, 70, 40, 46, 82, 38, 15, 26, 31, 56,
+          33, 11, 8,  46, 94, 62, 52, 61, 76, 58, 41, 69]
+
+Map = collect(zip(X, Y))
+# Map = [
+#     (100, 200),
+#     (50, 70),
+#     (40, 20),
+#     (9, 200),
+#     (170, 33),
+#     (110, 120),
+#     (300, 120),
+#     (200, 70),
+#     (180, 50)
+# ]
 
 indexOfMap = x -> getindex(Map, x)
-function travelTraderRoadLen(pathIndex)
+function TSP(pathIndex)
     roadLen = 0
     path = map(indexOfMap, pathIndex)
     start = path[1]
@@ -132,4 +139,11 @@ function travelTraderRoadLen(pathIndex)
     roadLen
 end
 
-println(ga(size(Map)[1], travelTraderRoadLen, 200, 500, 0.2, 0.2))
+route, score = ga(size(Map)[1], TSP, 700, 1000, 0.15, 0.25)
+
+X! = X[route]
+Y! = Y[route]
+using Gadfly
+points = plot(x=X!, y=Y!,  Geom.point, Geom.line)
+Gadfly.add_plot_element!(points, Guide.title("the length of route: $score"))
+draw(SVG("genetic.svg", 5inch, 3inch), points)

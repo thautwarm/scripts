@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:gadfly="http://www.gadflyjl.org/ns"
+     version="1.2"
+     width="127mm" height="127mm" viewBox="0 0 127 127"
+     stroke="none"
+     fill="#000000"
+     stroke-width="0.3"
+     font-size="3.88"
+>
+<g stroke="#000000" stroke-opacity="0.000" fill="#222831" id="img-e9114048-1">
+  <rect x="0" y="0" width="127" height="127"/>
+</g>
+<g class="plotroot xscalable yscalable" id="img-e9114048-2">
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#A1A1A1" stroke="#000000" stroke-opacity="0.000" id="img-e9114048-3">
+    <text x="63.79" y="115.39" text-anchor="middle" dy="0.6em">x</text>
+  </g>
+  <g class="guide xlabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#A1A1A1" id="img-e9114048-4">
+    <text x="17.59" y="108.72" text-anchor="middle" dy="0.6em">-2</text>
+    <text x="40.69" y="108.72" text-anchor="middle" dy="0.6em">-1</text>
+    <text x="63.79" y="108.72" text-anchor="middle" dy="0.6em">0</text>
+    <text x="86.89" y="108.72" text-anchor="middle" dy="0.6em">1</text>
+    <text x="109.99" y="108.72" text-anchor="middle" dy="0.6em">2</text>
+  </g>
+  <g class="guide colorkey" id="img-e9114048-5">
+    <g font-size="2.82" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#A1A1A1" id="img-e9114048-6">
+      <text x="116.3" y="50.31" dy="0.35em">1.0</text>
+      <text x="116.3" y="70.8" dy="0.35em">-0.5</text>
+      <text x="116.3" y="77.62" dy="0.35em">-1.0</text>
+      <text x="116.3" y="57.14" dy="0.35em">0.5</text>
+      <text x="116.3" y="63.97" dy="0.35em">0.0</text>
+    </g>
+    <g shape-rendering="crispEdges" stroke="#000000" stroke-opacity="0.000" id="img-e9114048-7">
+      <rect x="113.99" y="76.94" width="1.31" height="0.68" fill="#005D7F"/>
+      <rect x="113.99" y="76.26" width="1.31" height="0.68" fill="#27607E"/>
+      <rect x="113.99" y="75.58" width="1.31" height="0.68" fill="#3A647C"/>
+      <rect x="113.99" y="74.89" width="1.31" height="0.68" fill="#49677B"/>
+      <rect x="113.99" y="74.21" width="1.31" height="0.68" fill="#566B7A"/>
+      <rect x="113.99" y="73.53" width="1.31" height="0.68" fill="#626E78"/>
+      <rect x="113.99" y="72.85" width="1.31" height="0.68" fill="#6D7277"/>
+      <rect x="113.99" y="72.16" width="1.31" height="0.68" fill="#787575"/>
+      <rect x="113.99" y="71.48" width="1.31" height="0.68" fill="#827973"/>
+      <rect x="113.99" y="70.8" width="1.31" height="0.68" fill="#8B7C72"/>
+      <rect x="113.99" y="70.11" width="1.31" height="0.68" fill="#958070"/>
+      <rect x="113.99" y="69.43" width="1.31" height="0.68" fill="#9F836E"/>
+      <rect x="113.99" y="68.75" width="1.31" height="0.68" fill="#A8876D"/>
+      <rect x="113.99" y="68.07" width="1.31" height="0.68" fill="#B18B6B"/>
+      <rect x="113.99" y="67.38" width="1.31" height="0.68" fill="#BA8E69"/>
+      <rect x="113.99" y="66.7" width="1.31" height="0.68" fill="#C39267"/>
+      <rect x="113.99" y="66.02" width="1.31" height="0.68" fill="#CC9564"/>
+      <rect x="113.99" y="65.33" width="1.31" height="0.68" fill="#D69962"/>
+      <rect x="113.99" y="64.65" width="1.31" height="0.68" fill="#DF9D60"/>
+      <rect x="113.99" y="63.97" width="1.31" height="0.68" fill="#E8A05D"/>
+      <rect x="113.99" y="63.29" width="1.31" height="0.68" fill="#EDA05C"/>
+      <rect x="113.99" y="62.6" width="1.31" height="0.68" fill="#EE9C5D"/>
+      <rect x="113.99" y="61.92" width="1.31" height="0.68" fill="#EF985E"/>
+      <rect x="113.99" y="61.24" width="1.31" height="0.68" fill="#F0945E"/>
+      <rect x="113.99" y="60.56" width="1.31" height="0.68" fill="#F1905F"/>
+      <rect x="113.99" y="59.87" width="1.31" height="0.68" fill="#F28C5F"/>
+      <rect x="113.99" y="59.19" width="1.31" height="0.68" fill="#F38860"/>
+      <rect x="113.99" y="58.51" width="1.31" height="0.68" fill="#F48460"/>
+      <rect x="113.99" y="57.82" width="1.31" height="0.68" fill="#F57F61"/>
+      <rect x="113.99" y="57.14" width="1.31" height="0.68" fill="#F67B61"/>
+      <rect x="113.99" y="56.46" width="1.31" height="0.68" fill="#F77662"/>
+      <rect x="113.99" y="55.78" width="1.31" height="0.68" fill="#F87262"/>
+      <rect x="113.99" y="55.09" width="1.31" height="0.68" fill="#F96D62"/>
+      <rect x="113.99" y="54.41" width="1.31" height="0.68" fill="#FA6863"/>
+      <rect x="113.99" y="53.73" width="1.31" height="0.68" fill="#FB6263"/>
+      <rect x="113.99" y="53.04" width="1.31" height="0.68" fill="#FB5D64"/>
+      <rect x="113.99" y="52.36" width="1.31" height="0.68" fill="#FC5764"/>
+      <rect x="113.99" y="51.68" width="1.31" height="0.68" fill="#FD5164"/>
+      <rect x="113.99" y="51" width="1.31" height="0.68" fill="#FD4A65"/>
+      <rect x="113.99" y="50.31" width="1.31" height="0.68" fill="#FE4365"/>
+      <g stroke="#FFFFFF" stroke-width="0.2" id="img-e9114048-8">
+        <path fill="none" d="M113.99,50.31 L 115.3 50.31"/>
+        <path fill="none" d="M113.99,70.8 L 115.3 70.8"/>
+        <path fill="none" d="M113.99,77.62 L 115.3 77.62"/>
+        <path fill="none" d="M113.99,57.14 L 115.3 57.14"/>
+        <path fill="none" d="M113.99,63.97 L 115.3 63.97"/>
+      </g>
+    </g>
+    <g fill="#A1A1A1" font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" stroke="#000000" stroke-opacity="0.000" id="img-e9114048-9">
+      <text x="113.99" y="46.31">Color</text>
+    </g>
+  </g>
+<g clip-path="url(#img-e9114048-10)">
+  <g id="img-e9114048-11">
+    <g pointer-events="visible" opacity="1" fill="#222831" stroke="#000000" stroke-opacity="0.000" class="guide background" id="img-e9114048-12">
+      <rect x="15.59" y="5" width="96.39" height="102.72"/>
+    </g>
+    <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#575757" id="img-e9114048-13">
+      <path fill="none" d="M15.59,105.72 L 111.99 105.72"/>
+      <path fill="none" d="M15.59,81.04 L 111.99 81.04"/>
+      <path fill="none" d="M15.59,56.36 L 111.99 56.36"/>
+      <path fill="none" d="M15.59,31.68 L 111.99 31.68"/>
+      <path fill="none" d="M15.59,7 L 111.99 7"/>
+    </g>
+    <g class="guide xgridlines yfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#575757" id="img-e9114048-14">
+      <path fill="none" d="M17.59,5 L 17.59 107.72"/>
+      <path fill="none" d="M40.69,5 L 40.69 107.72"/>
+      <path fill="none" d="M63.79,5 L 63.79 107.72"/>
+      <path fill="none" d="M86.89,5 L 86.89 107.72"/>
+      <path fill="none" d="M109.99,5 L 109.99 107.72"/>
+    </g>
+    <g class="plotpanel" id="img-e9114048-15">
+      <g stroke-width="0.3" fill="#000000" fill-opacity="0.000" class="geometry color_" stroke-dasharray="none" stroke="#ECA25C" id="img-e9114048-16">
+        <path fill="none" d="M38.89,76.32 L 40.09 75.09 40.87 74.3 41.35 73.81 42.33 72.81 44 71.11 46.88 68.17 47.3 67.75 49.21 65.8 49.55 65.46 49.79 65.21 51.2 63.77 51.47 63.5 51.52 63.44 52.42 62.53 54.18 60.73 54.19 60.72 54.61 60.29 54.64 60.26 55.57 59.32 55.81 59.07 56.18 58.7 56.28 58.59 56.81 58.05 57.86 56.99 57.86 56.98 58.1 56.73 58.46 56.37 58.62 56.2 58.97 55.85 59.07 55.75 60 54.8 60.05 54.75 60.05 54.75 60.81 53.97 61.56 53.21 62.03 52.73 62.52 52.23 62.91 51.84 63.07 51.68 63.25 51.49 63.26 51.48 63.37 51.36 63.4 51.33 63.48 51.25 63.51 51.23 63.51 51.22 63.69 51.04 63.95 50.78 64.09 50.64 64.14 50.58 64.15 50.57 64.15 50.57 64.62 50.09 64.78 49.92 64.8 49.91 64.93 49.77 65.05 49.65 65.19 49.51 65.36 49.34 65.81 48.88 66.13 48.55 66.17 48.51 66.71 47.96 66.83 47.83 67.17 47.49 67.25 47.41 67.7 46.95 67.82 46.83 68.14 46.5 68.31 46.33 68.7 45.93 69.23 45.39 69.24 45.38 69.69 44.92 70.29 44.31 70.52 44.08 70.85 43.74 71.97 42.6 72.12 42.45 72.67 41.88 72.79 41.76 73.6 40.94 74.12 40.41 74.47 40.05 76.71 37.76 77.1 37.37 77.93 36.52 77.99 36.47 78.42 36.03 79 35.43 79.86 34.56 80.1 34.31 80.68 33.72 81.77 32.6 81.96 32.42 84.2 30.13 84.71 29.61 85.01 29.3 87.7 26.57"/>
+      </g>
+      <g class="geometry" id="img-e9114048-17">
+        <g stroke-width="0.3" id="img-e9114048-18">
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-19">
+            <use xlink:href="#img-e9114048-20" x="59.07" y="79.66"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-21">
+            <use xlink:href="#img-e9114048-22" x="81.96" y="62.09"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-23">
+            <use xlink:href="#img-e9114048-24" x="65.05" y="55.98"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-25">
+            <use xlink:href="#img-e9114048-26" x="51.47" y="48.83"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-27">
+            <use xlink:href="#img-e9114048-28" x="54.19" y="34.58"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-29">
+            <use xlink:href="#img-e9114048-30" x="84.2" y="58.13"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-31">
+            <use xlink:href="#img-e9114048-32" x="49.21" y="43.9"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-33">
+            <use xlink:href="#img-e9114048-34" x="42.33" y="62.7"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-35">
+            <use xlink:href="#img-e9114048-36" x="63.51" y="61.75"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-37">
+            <use xlink:href="#img-e9114048-38" x="58.62" y="51.39"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-39">
+            <use xlink:href="#img-e9114048-40" x="70.85" y="37.5"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-41">
+            <use xlink:href="#img-e9114048-42" x="71.97" y="50.43"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-43">
+            <use xlink:href="#img-e9114048-44" x="38.89" y="58.12"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-45">
+            <use xlink:href="#img-e9114048-46" x="85.01" y="70.63"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-47">
+            <use xlink:href="#img-e9114048-48" x="77.99" y="75.62"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-49">
+            <use xlink:href="#img-e9114048-50" x="70.29" y="53.6"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-51">
+            <use xlink:href="#img-e9114048-52" x="68.14" y="59.25"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-53">
+            <use xlink:href="#img-e9114048-54" x="56.81" y="40.5"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-55">
+            <use xlink:href="#img-e9114048-56" x="68.7" y="61.51"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-57">
+            <use xlink:href="#img-e9114048-58" x="78.42" y="43.14"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-59">
+            <use xlink:href="#img-e9114048-60" x="67.82" y="69.02"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-61">
+            <use xlink:href="#img-e9114048-62" x="62.03" y="40.15"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-63">
+            <use xlink:href="#img-e9114048-64" x="63.37" y="29.24"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-65">
+            <use xlink:href="#img-e9114048-66" x="63.51" y="58.6"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-67">
+            <use xlink:href="#img-e9114048-68" x="63.69" y="48.49"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-69">
+            <use xlink:href="#img-e9114048-70" x="73.6" y="71.76"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-71">
+            <use xlink:href="#img-e9114048-72" x="62.91" y="70.62"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-73">
+            <use xlink:href="#img-e9114048-74" x="66.71" y="55.75"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-75">
+            <use xlink:href="#img-e9114048-76" x="47.3" y="71.34"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-77">
+            <use xlink:href="#img-e9114048-78" x="79.86" y="53.05"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-79">
+            <use xlink:href="#img-e9114048-80" x="41.35" y="72.96"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-81">
+            <use xlink:href="#img-e9114048-82" x="60.05" y="36.22"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-83">
+            <use xlink:href="#img-e9114048-84" x="40.87" y="58.1"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-85">
+            <use xlink:href="#img-e9114048-86" x="55.81" y="61.79"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-87">
+            <use xlink:href="#img-e9114048-88" x="57.86" y="79.79"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-89">
+            <use xlink:href="#img-e9114048-90" x="49.79" y="65.09"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-91">
+            <use xlink:href="#img-e9114048-92" x="81.77" y="39.6"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-93">
+            <use xlink:href="#img-e9114048-94" x="65.81" y="50.96"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-95">
+            <use xlink:href="#img-e9114048-96" x="63.26" y="56.54"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-97">
+            <use xlink:href="#img-e9114048-98" x="44" y="75.02"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-99">
+            <use xlink:href="#img-e9114048-100" x="70.52" y="67.72"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-101">
+            <use xlink:href="#img-e9114048-102" x="60" y="34.54"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-103">
+            <use xlink:href="#img-e9114048-104" x="66.13" y="29.95"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-105">
+            <use xlink:href="#img-e9114048-106" x="58.1" y="66.6"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-107">
+            <use xlink:href="#img-e9114048-108" x="46.88" y="50.82"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-109">
+            <use xlink:href="#img-e9114048-110" x="60.05" y="54.7"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-111">
+            <use xlink:href="#img-e9114048-112" x="80.68" y="59.46"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-113">
+            <use xlink:href="#img-e9114048-114" x="64.93" y="61.68"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-115">
+            <use xlink:href="#img-e9114048-116" x="64.15" y="68.95"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-117">
+            <use xlink:href="#img-e9114048-118" x="51.2" y="72.59"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-119">
+            <use xlink:href="#img-e9114048-120" x="51.52" y="45.36"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-121">
+            <use xlink:href="#img-e9114048-122" x="60.81" y="76.47"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-123">
+            <use xlink:href="#img-e9114048-124" x="58.97" y="63.88"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-125">
+            <use xlink:href="#img-e9114048-126" x="80.1" y="33.59"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-127">
+            <use xlink:href="#img-e9114048-128" x="69.69" y="77.76"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-129">
+            <use xlink:href="#img-e9114048-130" x="49.55" y="53.75"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-131">
+            <use xlink:href="#img-e9114048-132" x="56.28" y="83.16"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-133">
+            <use xlink:href="#img-e9114048-134" x="64.62" y="57.16"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-135">
+            <use xlink:href="#img-e9114048-136" x="66.83" y="36.56"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-137">
+            <use xlink:href="#img-e9114048-138" x="66.17" y="70.15"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-139">
+            <use xlink:href="#img-e9114048-140" x="67.17" y="49.31"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-141">
+            <use xlink:href="#img-e9114048-142" x="72.12" y="73.6"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-143">
+            <use xlink:href="#img-e9114048-144" x="64.09" y="54.81"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-145">
+            <use xlink:href="#img-e9114048-146" x="64.8" y="41.57"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-147">
+            <use xlink:href="#img-e9114048-148" x="69.23" y="51.32"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-149">
+            <use xlink:href="#img-e9114048-150" x="74.47" y="55.13"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-151">
+            <use xlink:href="#img-e9114048-152" x="63.48" y="52.14"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-153">
+            <use xlink:href="#img-e9114048-154" x="77.93" y="35.2"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-155">
+            <use xlink:href="#img-e9114048-156" x="72.67" y="28.43"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-157">
+            <use xlink:href="#img-e9114048-158" x="64.15" y="57.47"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-159">
+            <use xlink:href="#img-e9114048-160" x="61.56" y="65.68"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-161">
+            <use xlink:href="#img-e9114048-162" x="57.86" y="72.85"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-163">
+            <use xlink:href="#img-e9114048-164" x="56.18" y="63.25"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-165">
+            <use xlink:href="#img-e9114048-166" x="79" y="39.87"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-167">
+            <use xlink:href="#img-e9114048-168" x="68.31" y="59.86"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-169">
+            <use xlink:href="#img-e9114048-170" x="54.61" y="58.05"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-171">
+            <use xlink:href="#img-e9114048-172" x="54.64" y="58.57"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-173">
+            <use xlink:href="#img-e9114048-174" x="72.79" y="48.28"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-175">
+            <use xlink:href="#img-e9114048-176" x="64.14" y="57.59"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-177">
+            <use xlink:href="#img-e9114048-178" x="84.71" y="38.88"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-179">
+            <use xlink:href="#img-e9114048-180" x="58.46" y="48.06"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-181">
+            <use xlink:href="#img-e9114048-182" x="64.78" y="48.85"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-183">
+            <use xlink:href="#img-e9114048-184" x="67.7" y="53.87"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-185">
+            <use xlink:href="#img-e9114048-186" x="65.36" y="55.69"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-187">
+            <use xlink:href="#img-e9114048-188" x="76.71" y="39.71"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-189">
+            <use xlink:href="#img-e9114048-190" x="63.25" y="56.98"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-191">
+            <use xlink:href="#img-e9114048-192" x="54.18" y="71.67"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-193">
+            <use xlink:href="#img-e9114048-194" x="67.25" y="80.67"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-195">
+            <use xlink:href="#img-e9114048-196" x="62.52" y="80.39"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-197">
+            <use xlink:href="#img-e9114048-198" x="69.24" y="77.87"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-199">
+            <use xlink:href="#img-e9114048-200" x="77.1" y="76.25"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-201">
+            <use xlink:href="#img-e9114048-202" x="63.95" y="84.89"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-203">
+            <use xlink:href="#img-e9114048-204" x="65.19" y="52.54"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-205">
+            <use xlink:href="#img-e9114048-206" x="63.4" y="73.2"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-207">
+            <use xlink:href="#img-e9114048-208" x="74.12" y="52.8"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-209">
+            <use xlink:href="#img-e9114048-210" x="52.42" y="64.97"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-211">
+            <use xlink:href="#img-e9114048-212" x="63.07" y="61.5"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-213">
+            <use xlink:href="#img-e9114048-214" x="40.09" y="55.38"/>
+          </g>
+          <g class="color_" stroke="#000B28" fill="#005D7F" id="img-e9114048-215">
+            <use xlink:href="#img-e9114048-216" x="55.57" y="32.08"/>
+          </g>
+          <g class="color_" stroke="#7F000D" fill="#FE4365" id="img-e9114048-217">
+            <use xlink:href="#img-e9114048-218" x="87.7" y="64.55"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</g>
+  <g class="guide ylabels" font-size="2.82" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#A1A1A1" id="img-e9114048-219">
+    <text x="14.59" y="105.72" text-anchor="end" dy="0.35em">-2</text>
+    <text x="14.59" y="81.04" text-anchor="end" dy="0.35em">-1</text>
+    <text x="14.59" y="56.36" text-anchor="end" dy="0.35em">0</text>
+    <text x="14.59" y="31.68" text-anchor="end" dy="0.35em">1</text>
+    <text x="14.59" y="7" text-anchor="end" dy="0.35em">2</text>
+  </g>
+  <g font-size="3.88" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#A1A1A1" stroke="#000000" stroke-opacity="0.000" id="img-e9114048-220">
+    <text x="8.81" y="56.36" text-anchor="end" dy="0.35em">y</text>
+  </g>
+</g>
+<defs>
+  <clipPath id="img-e9114048-10">
+  <path d="M15.59,5 L 111.99 5 111.99 107.72 15.59 107.72" />
+</clipPath>
+  <g id="img-e9114048-20">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-22">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-24">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-26">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-28">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-30">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-32">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-34">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-36">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-38">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-40">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-42">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-44">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-46">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-48">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-50">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-52">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-54">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-56">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-58">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-60">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-62">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-64">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-66">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-68">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-70">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-72">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-74">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-76">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-78">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-80">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-82">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-84">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-86">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-88">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-90">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-92">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-94">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-96">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-98">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-100">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-102">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-104">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-106">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-108">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-110">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-112">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-114">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-116">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-118">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-120">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-122">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-124">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-126">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-128">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-130">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-132">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-134">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-136">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-138">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-140">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-142">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-144">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-146">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-148">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-150">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-152">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-154">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-156">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-158">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-160">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-162">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-164">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-166">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-168">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-170">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-172">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-174">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-176">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-178">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-180">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-182">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-184">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-186">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-188">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-190">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-192">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-194">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-196">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-198">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-200">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-202">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-204">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-206">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-208">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-210">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-212">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-214">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-216">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+  <g id="img-e9114048-218">
+    <circle cx="0" cy="0" r="0.9"/>
+  </g>
+</defs>
+</svg>
