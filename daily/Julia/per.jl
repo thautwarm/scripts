@@ -116,8 +116,8 @@ points = layer(x=X, y=Y, color=collect(targets), Geom.point)
 line = layer(x=AllX,
              y=map(line_fn, AllX),
              color=map(x->0, collect(targets)), Geom.line)
-Gadfly.add_plot_element!(line, Guide.title("formula: $W!1 x + $W!2 y + $b! = 0"))
 graph = plot(points, line)
+Gadfly.add_plot_element!(graph, Guide.title("formula: $W!1 x + $W!2 y + $b! = 0"))
 # graph = vstack(line, points)
 
 draw(SVG("perceptron.svg", 5inch, 5inch), graph)
