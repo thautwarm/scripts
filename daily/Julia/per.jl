@@ -22,10 +22,9 @@ end
 
 
 doc"""
-train Perceptron
+# train the perceptron
 """
 function train!(model :: Perceptron, datasets :: DataSets, iter = 100)
-
     for iter_num in 0:iter-1
         count = 0
 
@@ -39,13 +38,14 @@ function train!(model :: Perceptron, datasets :: DataSets, iter = 100)
 
         if count == 0
             println("converged on current datasets.")
-            println("use $iter_num times to converge.")
-            break
+            println("traverse the datsets  $iter_num times to converge.")
+            return count == 0 # return is the model fitted or not
         else
             println("haven't been converaged yet.")
         end
     end
 
+    false
 end
 
 doc"""
@@ -60,12 +60,13 @@ end
 
 
 
-function make_data(a :: Dtype, b :: Dtype)
-    target = W1*a + W2*b + bias
-    ([a, b], target>0? 1 : -1)
-end
 
 function make_datasets(size :: Int, radius = 50.0)
+    const make_data(a :: Dtype, b :: Dtype) = begin
+        target = W1*a + W2*b + bias
+        ([a, b], target>0? 1 : -1)
+    end
+
     map(1:size) do _
         r = rand()*radius
         θ = 2 * π * rand()
@@ -78,20 +79,21 @@ end
 
 datasets = make_datasets(100, 1.2)
 per = Perceptron(2, 0.05)
-train!(per, datasets)
-train!(per, datasets)
+
+
+while train!(per, datasets) == false
+    # retrain perceptron
+end
+
 vecs, targets = collect(zip(datasets...))
 
-# println("datasets:")
-# println(datasets))
-
 datas = collect(vecs)
-println(per)
-println("result:")
+println(per)  # print the fitted perceptron model
 pred = predict(per, datas)
-foreach(collect(zip(pred, targets))) do each
-    println("-> $each")
-end
+# print all the predictions with their corresponding true value.
+# foreach(collect(zip(pred, targets))) do each
+#     println("-> $each")
+# end
 acc = map(zip(pred, targets)) do x
     a, b = x
     a == b
@@ -100,8 +102,7 @@ end |> sum |> x -> x/size(datasets)[1]
 println("acc: $acc")
 
 
-#plot
-
+# plot
 W!1, W!2 = per.weight
 b! = per.bias
 line_fn = x -> (- b! - W!1 * x)/W!2
@@ -111,13 +112,18 @@ X = collect(X)
 Y = collect(Y)
 AllX = sort(X)
 
-
 points = layer(x=X, y=Y, color=collect(targets), Geom.point)
 line = layer(x=AllX,
              y=map(line_fn, AllX),
              color=map(x->0, collect(targets)), Geom.line)
 graph = plot(points, line)
-Gadfly.add_plot_element!(graph, Guide.title("formula: $W!1 x + $W!2 y + $b! = 0"))
-# graph = vstack(line, points)
+Gadfly.add_plot_element!(graph,
+                         Guide.title("formula: x + $(round(W!2/W!1, 2)) y + $(round(b!/W!1, 2)) = 0"))
 
 draw(SVG("perceptron.svg", 5inch, 5inch), graph)
+
+# write the pairs into text file.
+open("datas.txt", "w") do f
+    write(f, "true classifier : f(x, y) = x - y - 0.2\n")
+    write(f, string(datas))
+end
