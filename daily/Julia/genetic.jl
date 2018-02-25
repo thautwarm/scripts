@@ -8,6 +8,8 @@ Gene = Int  # allele.
 Chromosome  = Vector{Gene} # a chromosome is a vector of genes.
 Popu  = Vector{Chromosome}  # a population os a vector of chromosomes.
 
+Point = Tuple{Int, Int}
+
 doc"""
 # a rnadom disturb
 """
@@ -145,7 +147,7 @@ function ga(chromosome_length :: Int, fitness :: Function,
         end |> it -> append!(popu, it)
 
     end
-    println(popu[end], fitness(popu[end]))
+    println(popu[1], fitness(popu[1]))
     (popu[1], fitness(popu[1]))
 
 end
@@ -188,20 +190,33 @@ function TSP(pathIndex)
         roadLen += hypot(x2-x1, y2-y1)
         start = next
     end
-    roadLen
+    x2, y2  = path[1]
+    x1, y1  = path[end]
+    roadLen + hypot(x2-x1, y2-y1)
 end
 
-route, score = ga(size(Map)[1], TSP, 1000, 400, 0.5, 0.5)
+route, score = ga(size(Map)[1], TSP, 1200, 500, 0.4, 0.45)
 
 # sort x-locations and y-locations with the route.
 X! = X[route]
 Y! = Y[route]
-
+push!(X!, X![1])
+push!(Y!, Y![1])
 # plot the route.
+
 using Gadfly
-points = plot(x=X!, y=Y!,  Geom.point, Geom.line)
+# plot the line chart from A to B
+A::Point → B::Point=begin
+    x1, y1 = A
+    x2, y2 = B
+    layer(x = [x1, x2], y = [y1, y2], Geom.point, Geom.line)
+end
+layers = [from → to for (from, to) in zip(zip(X![1:end-1], Y![1:end-1]),
+                                          zip(X![2:end],   Y![2:end]))]
+points = plot(layers...)
+
 Gadfly.add_plot_element!(points, Guide.title("the length of route: $(round(score, 2))"))
-draw(SVG("tsp_route.svg", 5inch, 3inch), points)
+draw(SVG("tsp_route.svg", 5inch, 5inch), points)
 
 open("tsp_route.txt", "w") do f
     write(f, string(route))
